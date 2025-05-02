@@ -15,7 +15,9 @@ LIST(APPEND SGF_INCLUDES ${ZLIB_INCLUDE_DIR})
 LIST(APPEND SGF_LIBS ${ZLIB_LIBRARIES})
 
 SET(SGF_SOURCES
+    options.cpp
     main.cpp
+    sgf_file.cpp
 )
 
 SET(SGF_EXE_NAME "saved-game-format")

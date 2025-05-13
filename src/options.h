@@ -4,14 +4,16 @@
 #include <string>
 #include <iostream>
 
-const std::string pcUpdate("update");
 const std::string pcAdd("add");
 const std::string pcDump("dump");
+const std::string pcList("list");
+const std::string pcUpdate("update");
 
 enum ProgramCommand {
-    COMMAND_UPDATE=0,
+    COMMAND_LIST=0,
     COMMAND_ADD,
     COMMAND_DUMP,
+    COMMAND_UPDATE,
 };
 
 std::ostream& operator<< (std::ostream& out, ProgramCommand pc);

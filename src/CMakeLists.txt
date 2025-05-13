@@ -3,11 +3,15 @@ SET(SGF_INCLUDES "")
 SET(SGF_LIBS "")
 
 #  FIX: Add iostreams
-FIND_PACKAGE(Boost COMPONENTS filesystem json log program_options REQUIRED)
+FIND_PACKAGE(Boost COMPONENTS filesystem iostreams json log program_options system REQUIRED)
 MESSAGE(STATUS "Found Boost Library Version: ${Boost_MAJOR_VERSION}.${Boost_MINOR_VERSION}.${Boost_SUBMINOR_VERSION}")
 MESSAGE(STATUS "Boost Libraries: ${Boost_LIBRARIES}")
 LIST(APPEND SGF_INCLUDES ${Boost_INCLUDE_DIRS})
 LIST(APPEND SGF_LIBS ${Boost_LIBRARIES})
+
+FIND_PACKAGE(LibArchive REQUIRED)
+LIST(APPEND SGF_INCLUDES ${LibArchive_INCLUDE_DIRS})
+LIST(APPEND SGF_LIBS ${LibArchive_LIBRARIES})
 
 FIND_PACKAGE(ZLIB REQUIRED)
 MESSAGE(STATUS "Found ZLib Library Version: ${ZLIB_VERSION}")

@@ -5,6 +5,9 @@
 
 std::ostream& operator<< (std::ostream& out, ProgramCommand pc) {
     switch (pc) {
+        case COMMAND_LIST:
+            out<<pcList;
+            break;
         case COMMAND_UPDATE:
             out<<pcUpdate;
             break;
@@ -31,6 +34,8 @@ std::istream& operator>> (std::istream &in, ProgramCommand &command) {
         command = COMMAND_ADD;
     } else if (token == pcDump) {
         command = COMMAND_DUMP;
+    } else if (token == pcList) {
+        command = COMMAND_LIST;
     } else {
         throw boost::program_options::validation_error(
             boost::program_options::validation_error::invalid_option_value,
